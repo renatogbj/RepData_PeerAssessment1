@@ -13,26 +13,6 @@ Loading the data:
 
 ```r
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 setwd('/Users/renato/Documents/Coursera/Coursera-Data-Science/Reproducible Research/')
 activity <- read.csv('activity.csv')
 str(activity)
@@ -127,7 +107,7 @@ A time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the a
 ```r
 avg <- df %>% group_by(interval) %>%
         summarize(avg_steps = mean(steps, na.rm = TRUE))
-plot(x = avg$interval, y = avg$avg_steps, xlab = 'Interval', ylab = 'Average steps per day')
+plot(x = avg$interval, y = avg$avg_steps, xlab = 'Interval', ylab = 'Average steps per day', type = 'l')
 ```
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
